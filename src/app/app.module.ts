@@ -7,13 +7,15 @@ import { AppComponent } from './app.component';
 import { CharactersComponent } from './characters/characters.component';
 import { IndividualCharacterComponent } from './individual-character/individual-character.component';
 import { ViewCharacterComicsComponent } from './view-character-comics/view-character-comics.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     CharactersComponent,
     IndividualCharacterComponent,
-    ViewCharacterComicsComponent
+    ViewCharacterComicsComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
