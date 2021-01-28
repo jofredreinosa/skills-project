@@ -31,6 +31,18 @@ export class CharactersService {
     )
   }
 
+  public getComicsByCharacters(id): Observable<any> {
+
+    const url = `${this.baseUrl}v1/public/characters/${id}/comics?apikey=${this.apiKey}`;
+
+    return this._httpClient.get(url).pipe(
+      catchError((err: HttpErrorResponse) => {
+        return this.processError(err);
+      }),
+      map(data => data.data.results),
+    )
+  }
+
   private processError(err): Observable<any> {
 
     const error = err.error.message || 'Error';

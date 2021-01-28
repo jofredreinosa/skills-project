@@ -16,5 +16,9 @@ export class CharactersComponent implements OnInit {
     this.characters = this._charactersService.getCharacters();
   }
 
-  
+  viewComics(id) {
+    this._charactersService.getComicsByCharacters(id).subscribe( result => {
+      console.log(result);
+    })
+  }
 }

@@ -2,6 +2,6 @@
   <img [src]="getImage(character.thumbnail)" class="card-img-top character-img" alt="{{character.name}}">
   <div class="card-body">
     <h5 class="card-title">{{ character.name }}</h5>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <button type="button" class="btn btn-primary" (click)="viewComics(character.id)">Ver cómics</button>
   </div>
 </div>
