@@ -8,6 +8,9 @@ import { CharactersComponent } from './characters/characters.component';
 import { IndividualCharacterComponent } from './individual-character/individual-character.component';
 import { ViewCharacterComicsComponent } from './view-character-comics/view-character-comics.component';
 import { HomeComponent } from './home/home.component';
+import { LoadingComponent } from './loading/loading.component';
+import { ShowSingleCharacterComponent } from './show-single-character/show-single-character.component';
+import { IndividualComicComponent } from './individual-comic/individual-comic.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +18,10 @@ import { HomeComponent } from './home/home.component';
     CharactersComponent,
     IndividualCharacterComponent,
     ViewCharacterComicsComponent,
-    HomeComponent
+    HomeComponent,
+    LoadingComponent,
+    ShowSingleCharacterComponent,
+    IndividualComicComponent
   ],
   imports: [
     BrowserModule,

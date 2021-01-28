@@ -9,14 +9,23 @@ import { Observable } from 'rxjs';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  characters: Observable<any>;
+  characters;
+  loading: boolean;
   constructor(
     private _charactersService: CharactersService,
     private _router: Router,
   ) { }
 
-  ngOnInit(): void {
-    this.characters = this._charactersService.getCharacters();
+  ngOnInit() {
+    this.getCharacters();
+  }
+
+  private getCharacters() {
+    this.loading = true;
+    this._charactersService.getCharacters().subscribe(result => {
+      this.characters = result;
+      this.loading = false;
+    });
   }
 
   viewComics(id) {

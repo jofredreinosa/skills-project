@@ -20,9 +20,7 @@ export class CharactersService {
   }
 
   public getCharacters(): Observable<any> {
-    
     const url = `${this.baseUrl}v1/public/characters?apikey=${this.apiKey}`;
-
     return this._httpClient.get(url).pipe(
       catchError((err: HttpErrorResponse) => {
         return this.processError(err);
@@ -32,9 +30,17 @@ export class CharactersService {
   }
 
   public getComicsByCharacters(id): Observable<any> {
-
     const url = `${this.baseUrl}v1/public/characters/${id}/comics?apikey=${this.apiKey}`;
+    return this._httpClient.get(url).pipe(
+      catchError((err: HttpErrorResponse) => {
+        return this.processError(err);
+      }),
+      map(data => data.data.results),
+    )
+  }
 
+  public getCharacterById(id): Observable<any> {
+    const url = `${this.baseUrl}v1/public/characters/${id}?apikey=${this.apiKey}`;
     return this._httpClient.get(url).pipe(
       catchError((err: HttpErrorResponse) => {
         return this.processError(err);
