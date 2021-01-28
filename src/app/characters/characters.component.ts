@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { CharactersService } from './../services/characters.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-characters',
@@ -7,9 +9,10 @@ import { CharactersService } from './../services/characters.service';
   styleUrls: ['./characters.component.scss']
 })
 export class CharactersComponent implements OnInit {
-  characters;
+  characters: Observable<any>;
   constructor(
-    private _charactersService: CharactersService
+    private _charactersService: CharactersService,
+    private _router: Router,
   ) { }
 
   ngOnInit(): void {
@@ -17,8 +20,6 @@ export class CharactersComponent implements OnInit {
   }
 
   viewComics(id) {
-    this._charactersService.getComicsByCharacters(id).subscribe( result => {
-      console.log(result);
-    })
+    this._router.navigate(['/comics-by-character', {characterId: id}]);
   }
 }
