@@ -16,6 +16,7 @@ export class ViewCharacterComicsComponent implements OnInit {
   characters: Character[] = [];
   singleCharacter: Character;
   comics;
+  loading: boolean;
   constructor(
     private _activatedRoute: ActivatedRoute,
     private _charactersService: CharactersService
@@ -29,13 +30,17 @@ export class ViewCharacterComicsComponent implements OnInit {
   }
 
   private getCharacter() {
+    this.loading = true;
     this._charactersService.getComicsByCharacters(this.characterId).subscribe( result => {
+      this.loading = false;
       this.comics = result;
     });
   }
 
   private getComics() {
+    this.loading = true;
     this._charactersService.getCharacterById(this.characterId).subscribe( result => {
+      this.loading = false;
       this.characters = result.map( character => {
         return {
           name: character.name,
