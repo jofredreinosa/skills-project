@@ -2,6 +2,8 @@
   <img [src]="getImage(character.thumbnail)" class="card-img-top character-img img-fluid" alt="{{character.name}}">
   <div class="card-body">
     <h5 class="card-title">{{ character.name }}</h5>
-    <button type="button" class="btn btn-primary" (click)="viewComics(character.id)">Ver cómics</button>
+    <div class="text-right">
+      <button type="button" class="btn btn-primary" (click)="viewComics(character.id)">Ver cómics</button>
+    </div>
   </div>
 </div>

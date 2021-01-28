@@ -8,6 +8,7 @@ import { Component, Input, OnInit } from '@angular/core';
 export class IndividualComicComponent implements OnInit {
   @Input() comic;
   thumbnail: string;
+  imageLoader: boolean = true;
   constructor() { }
 
   ngOnInit(): void {
